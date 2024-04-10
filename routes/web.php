@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 //client
 Route::get('/', [HomeController::class, 'show'])->name('home');
 //admin
-Route::middleware(['/admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'show'])->name('admin');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'show'])->name('admin');
 });
 // Route::get('/admin', [AdminController::class, 'show'])->name('admin');
