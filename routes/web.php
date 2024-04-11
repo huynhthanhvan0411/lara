@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +12,13 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//client
-Route::get('/', [HomeController::class, 'show'])->name('home');
-//admin
-Route::middleware(['admin'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'show'])->name('admin');
+
+Route::get('/', function () {
+    return view('welcome');
 });
-// Route::get('/admin', [AdminController::class, 'show'])->name('admin');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
