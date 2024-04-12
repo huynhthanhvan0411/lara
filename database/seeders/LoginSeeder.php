@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class DatabasePolicy extends Seeder
+class LoginSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class DatabasePolicy extends Seeder
      */
     public function run()
     {
-        //
+         //
         \DB::table('users')->insert([
         [
             'name' => 'admin',
@@ -32,5 +32,19 @@ class DatabasePolicy extends Seeder
                 'email_verified_at' => now(),
             ],
         ]);
+        \DB::table('permissions')->insert([
+            ['name' => 'review_post'],
+            ['name' => 'update_post'],
+            ['name' => 'delete_post'],
+            ['name' => 'restore_post'],
+            ['name' => 'force_delete_post'],
+        ]);
+        //
+        \DB::table('roles')->insert([
+            ['name' => 'admin'],
+            ['name' => 'user'],
+            ['name' => 'staff-create'],
+            ]);
+
     }
 }

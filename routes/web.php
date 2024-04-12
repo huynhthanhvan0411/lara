@@ -21,6 +21,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Route::get('/admin', [PostController::class, 'show'])->name('admin');
+Route::get('/post', [PostController::class, 'show'])->name('post');
 
 require __DIR__.'/auth.php';
