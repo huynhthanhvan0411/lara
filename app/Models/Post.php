@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+    protected $table = "posts";
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+
+    protected $fillable = [
+        'title','description', 'image','post_status'
+    ];
 }
