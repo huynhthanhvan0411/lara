@@ -47,9 +47,32 @@ class PostController extends Controller
         return view('Admin.Post.editPost');
     }
     public function update (){
-        return redirect()->route('posts.show');
+        //validation
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'post_status' => 'required|in:0,1',
+        ]);
+        $post = Post::find($id);
+        //upload
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->post_status = $request->post_status;
+        //upload image
+          if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('source/images/posts'), $imageName);
+            $post->image = $imageName;
+        }
+        //save
+        $post->save();
+        //redicrect
+        return redirect()->route('posts');
     }
     public function destroy (){
-        return redirect()->route('posts.show');
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('posts');
     }
 }
