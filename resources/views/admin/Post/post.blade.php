@@ -3,6 +3,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+        <h2>
+            <a href="{{ route('post.create') }}">Thêm bài viết</a>
+        </h2>
 
     </x-slot>
 
@@ -13,13 +16,12 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên</th>
-                            <th>Email</th>
-                            <th>Vai trò</th>
+                            <th>Tiêu đề</th>
+                            <th>Mô tả</th>
                             <th>Hình ảnh</th>
                             <th>Trạng thái </th>
                             <th>Ngày tạo</th>
-                            <th class="text-right">Hành động</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +31,15 @@
                         @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $stt++ }}</td>
-                                <td>{{ $post->name }}</td>
+                                <td>{{ $post->title }}</td>
+                                <td>{{ $post->description }}</td>
+                                <td>{{ $post->image }}</td>
+                                <td>{{ $post->post_status }}</td>
+                                <td>{{ $post->created_at }}</td>
+                                <td>
+                                    <a href="" class="btnEdit" style="color: aquamarine">Edit</a>
+                                    <a href="" class="btnDelete" style="color: red">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
