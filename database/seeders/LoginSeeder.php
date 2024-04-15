@@ -15,7 +15,7 @@ class LoginSeeder extends Seeder
     {
          //
         \DB::table('users')->insert([
-        [
+            [
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
@@ -32,19 +32,5 @@ class LoginSeeder extends Seeder
                 'email_verified_at' => now(),
             ],
         ]);
-        \DB::table('permissions')->insert([
-            ['name' => 'review_post'],
-            ['name' => 'update_post'],
-            ['name' => 'delete_post'],
-            ['name' => 'restore_post'],
-            ['name' => 'force_delete_post'],
-        ]);
-        //
-        \DB::table('roles')->insert([
-            ['name' => 'admin'],
-            ['name' => 'user'],
-            ['name' => 'staff-create'],
-            ]);
-
     }
 }
