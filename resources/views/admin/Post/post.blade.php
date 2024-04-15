@@ -37,7 +37,7 @@
                                 <td>{{ $post->post_status }}</td>
                                 <td>{{ $post->created_at }}</td>
                                 <td>
-                                    <a href="" class="btnEdit" style="color: aquamarine">Edit</a>
+                                    <a href="{{ route('post.edit') }}" class="btnEdit" style="color: aquamarine">Edit</a>
                                     <a href="" class="btnDelete" style="color: red">Delete</a>
                                 </td>
                             </tr>
