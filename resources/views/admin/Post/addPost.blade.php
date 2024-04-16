@@ -19,15 +19,15 @@
         <br>
         <br>
         <label for="description">Mô tả</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
         <br>
         <br>
         <label for="image">Hình ảnh</label>
         <input type="file" name="image">
         <br>
         <br>
-        <label for="status">Trang thai</label>
-        <select name="status" id="status">
+        <label for="post_status">Trang thai</label>
+        <select name="post_status" id="post_status">
             <option value="1">Hien thi</option>
             <option value="0">Khong hien thi</option>
         </select>

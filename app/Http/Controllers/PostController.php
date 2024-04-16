@@ -41,7 +41,7 @@ class PostController extends Controller
         $post->save();
 
         // Redirect back or wherever you want
-        return redirect()->route('posts');
+        return redirect()->route('post');
     }
     public function edit ( $id){
         $post = Post::find($id);
@@ -74,6 +74,6 @@ class PostController extends Controller
     public function delete ( $id){
         $post = Post::find($id);
         $post->delete();
-        return redirect()->route('posts');
+        return redirect()->route('post');
     }
 }

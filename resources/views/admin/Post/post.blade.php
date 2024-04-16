@@ -33,7 +33,13 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->description }}</td>
                                 <td>{{ $post->image }}</td>
-                                <td>{{ $post->post_status }}</td>
+                                <td>{{ $post->post_status }}
+                                    @if ($post->post_status == 1)
+                                        <span>Hiển thị</span>
+                                    @else
+                                        <span>Không hiển thị</span>
+                                    @endif
+                                </td>
                                 <td>{{ $post->created_at }}</td>
                                 <td>
                                     <a href="{{ route('postEdit', $post->id) }}" class="btnEdit"
