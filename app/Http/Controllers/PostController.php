@@ -43,10 +43,11 @@ class PostController extends Controller
         // Redirect back or wherever you want
         return redirect()->route('posts');
     }
-    public function edit (){
-        return view('Admin.Post.editPost');
+    public function edit ( $id){
+        $post = Post::find($id);
+        return view('Admin.Post.editPost', compact('post'));
     }
-    public function update (){
+    public function update (Request $request, $id){
         //validation
         $request->validate([
             'title' => 'required|string|max:255',
@@ -70,7 +71,7 @@ class PostController extends Controller
         //redicrect
         return redirect()->route('posts');
     }
-    public function destroy (){
+    public function delete ( $id){
         $post = Post::find($id);
         $post->delete();
         return redirect()->route('posts');

@@ -8,7 +8,6 @@
         </h2>
 
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-6 bg-white border-b border-gray-200">
@@ -37,8 +36,10 @@
                                 <td>{{ $post->post_status }}</td>
                                 <td>{{ $post->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('post.edit') }}" class="btnEdit" style="color: aquamarine">Edit</a>
-                                    <a href="" class="btnDelete" style="color: red">Delete</a>
+                                    <a href="{{ route('postEdit', $post->id) }}" class="btnEdit"
+                                        style="color: aquamarine">Edit</a>
+                                    <a href="{{ route('postDelete', $post->id) }}" class="btnDelete"
+                                        style="color: red">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

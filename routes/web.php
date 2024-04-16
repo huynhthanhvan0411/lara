@@ -23,6 +23,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 Route::get('/post', [PostController::class, 'show'])->name('post');
 Route::get('/add-post', [PostController::class, 'create'])->name('post.create');
-Route::get('/update-post', [PostController::class, 'edit'])->name('post.edit');
+
+Route::get('/update-post/{id}', [PostController::class, 'edit'])->name('postEdit');
+Route::post('/store-post', [PostController::class, 'store'])->name('post.store');
+
+Route::get('/delete-post/{id}', [PostController::class, 'delete'])->name('postDelete');
 
 require __DIR__.'/auth.php';
