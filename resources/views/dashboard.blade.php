@@ -8,7 +8,16 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            gggg
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                {{-- @foreach ($posts as $post)
+                    <div class="item">
+                        <h2>{{ $post->title }}</h2>
+                        <img src="{{ asset('source/images/posts/' . $post->image) }}" alt="">
+                        <p>{{ $post->description }}</p>
+                    </div>
+                @endforeach --}}
+
+            </div>
         </div>
     </div>
 </x-app-layout>

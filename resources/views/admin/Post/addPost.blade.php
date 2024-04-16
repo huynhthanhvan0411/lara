@@ -26,8 +26,8 @@
         <input type="file" name="image">
         <br>
         <br>
-        <label for="post_status">Trang thai</label>
-        <select name="post_status" id="post_status">
+        <label for="status">Trang thai</label>
+        <select name="status" id="status">
             <option value="1">Hien thi</option>
             <option value="0">Khong hien thi</option>
         </select>

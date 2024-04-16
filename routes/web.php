@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,4 +30,5 @@ Route::post('/update-post/{id}', [PostController::class, 'update'])->name('postU
 
 Route::get('/delete-post/{id}', [PostController::class, 'delete'])->name('postDelete');
 
+// Route::get('/dashboard', [UserController::class, 'show'])->name('home');
 require __DIR__.'/auth.php';

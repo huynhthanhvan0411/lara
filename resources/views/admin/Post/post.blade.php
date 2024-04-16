@@ -32,9 +32,11 @@
                                 <td>{{ $stt++ }}</td>
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->description }}</td>
-                                <td>{{ $post->image }}</td>
-                                <td>{{ $post->post_status }}
-                                    @if ($post->post_status == 1)
+                                <td style="width: 80px; height: 80px;">
+                                    <img src="source/images/posts/{{ $post->image }}" alt="">
+                                </td>
+                                <td>{{ $post->status }}
+                                    @if ($post->status == 1)
                                         <span>Hiển thị</span>
                                     @else
                                         <span>Không hiển thị</span>

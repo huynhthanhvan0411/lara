@@ -22,7 +22,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'post_status' => 'required|in:0,1',
+            'status' => 'required|in:0,1',
 
         ]);
 
@@ -35,7 +35,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->image = $imageName; // Lưu tên ảnh vào cơ sở dữ liệu
-        $post->post_status = $request->post_status;
+        $post->status = $request->status;
 
         // Save news to database
         $post->save();
@@ -44,7 +44,7 @@ class PostController extends Controller
         return redirect()->route('post');
     }
     public function edit ( $id){
-        $post = Post::find($id);
+        $post = Post::findorfail($id);
         return view('Admin.Post.editPost', compact('post'));
     }
     public function update (Request $request, $id){
@@ -52,14 +52,14 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'status' => 'required|in:1,2,0',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'post_status' => 'required|in:0,1',
         ]);
-        $post = Post::find($id);
-        //upload
+        $post = Post::findorfail($id);
+        //upload data
         $post->title = $request->title;
         $post->description = $request->description;
-        $post->post_status = $request->post_status;
+        $post->status = $request->status;
         //upload image
           if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
@@ -69,7 +69,7 @@ class PostController extends Controller
         //save
         $post->save();
         //redicrect
-        return redirect()->route('posts');
+        return redirect()->route('post');
     }
     public function delete ( $id){
         $post = Post::find($id);
